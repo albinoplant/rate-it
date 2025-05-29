@@ -20,4 +20,7 @@ pnpm dlx shadcn@latest add button
 ```
 
 ### Database
-This project uses supabase for the database.
+This project uses supabase as data store.
+
+### Deployment
+[![Live on Vercel](https://img.shields.io/badge/live%20on-vercel-brightgreen)](https://rate-it-snowy.vercel.app/)
