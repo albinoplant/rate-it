@@ -1,6 +1,10 @@
+import MainLayout from "@/components/layouts/MainLayout";
+
 export default async function Dashboard() {
 
   return (
-    <>DASHBOARD</>
+    <MainLayout>
+        <>DASHBOARD</>
+    </MainLayout>
   )
 }

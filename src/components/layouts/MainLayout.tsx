@@ -1,0 +1,71 @@
+'use client';
+
+import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+
+const navigation = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
+];
+
+export default function MainLayout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+
+  return (
+    <div className="flex min-h-screen flex-col">
+      <header className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+          <Link href="/" className="flex items-center space-x-2">
+            <span className="text-lg font-bold font-geist-sans">Rate it</span>
+          </Link>
+
+          <nav className="hidden md:flex space-x-6 ml-auto">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={cn(
+                  "text-sm font-medium transition-colors hover:text-primary font-geist-sans",
+                  pathname === item.href
+                    ? "text-primary"
+                    : "text-muted-foreground"
+                )}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      </header>
+      <main className="flex-1">
+        <div className="container px-4 sm:px-6 lg:px-8 py-6">
+          {children}
+        </div>
+      </main>
+      <footer className="border-t bg-muted/40">
+        <div className="flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+          <p className="text-sm text-muted-foreground font-geist-sans">
+            © {new Date().getFullYear()} Rate It. All rights reserved.
+          </p>
+          <div className="flex items-center space-x-6 ml-auto">
+            <Link
+              href="/privacy"
+              className="text-sm text-muted-foreground hover:text-primary font-geist-sans"
+            >
+              Privacy
+            </Link>
+            <Link
+              href="/terms"
+              className="text-sm text-muted-foreground hover:text-primary font-geist-sans"
+            >
+              Terms
+            </Link>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
