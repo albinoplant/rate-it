@@ -32,19 +32,7 @@ export default function Login() {
     } else {
       router.push('/dashboard');
     }
-  };
 
-  const handleGoogleLogin = async () => {
-    const { error } = await createClient().auth.signInWithOAuth({
-      provider: 'google',
-      options: {
-        redirectTo: `${window.location.origin}/dashboard`,
-      },
-    });
-
-    if (error) {
-      setError(error.message);
-    }
   };
 
   return (
@@ -87,16 +75,6 @@ export default function Login() {
               {loading ? 'Signing in...' : 'Sign In'}
             </Button>
           </form>
-          <div className="mt-4">
-            <Button
-              variant="outline"
-              className="w-full"
-              onClick={handleGoogleLogin}
-              disabled={loading}
-            >
-              Sign in with Google
-            </Button>
-          </div>
         </CardContent>
         <CardFooter className="justify-center">
           <p className="text-sm">

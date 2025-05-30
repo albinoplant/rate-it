@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { createClient } from '@/lib/supabase/client';
+import { toast } from 'sonner';
 
 export default function Register() {
   const [email, setEmail] = useState('');
@@ -33,7 +34,8 @@ export default function Register() {
       setError(error.message);
       setLoading(false);
     } else {
-      router.push('/dashboard'); // Redirect to dashboard or desired route
+      toast.success('Registration successful! Please check your email to confirm your account.');
+      router.push('/login');
     }
   };
 
