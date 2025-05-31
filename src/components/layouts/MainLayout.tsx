@@ -5,10 +5,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 
-const navigation = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
+const navigation: any[] = [
+
 ];
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {
@@ -40,13 +38,13 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
           </nav>
         </div>
       </header>
-      <main className="flex-1">
-        <div className="container px-4 sm:px-6 lg:px-8 py-6">
+      <main className="flex-1 flex justify-center">
+        <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           {children}
         </div>
       </main>
-      <footer className="border-t bg-muted/40">
-        <div className="flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+      <footer className="flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+      
           <p className="text-sm text-muted-foreground font-geist-sans">
             © {new Date().getFullYear()} Rate It. All rights reserved.
           </p>
@@ -63,7 +61,6 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
             >
               Terms
             </Link>
-          </div>
         </div>
       </footer>
     </div>
