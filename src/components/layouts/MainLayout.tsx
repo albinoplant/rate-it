@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 
 const navigation: any[] = [
 
@@ -36,6 +36,9 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
               </Link>
             ))}
           </nav>
+          <Avatar>
+            <AvatarFallback>me</AvatarFallback>
+          </Avatar>
         </div>
       </header>
       <main className="flex-1 flex justify-center">
