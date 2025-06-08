@@ -5,7 +5,7 @@ import Image from "next/image";
 import { createClient } from "@/lib/supabase/client";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import MainLayout from "@/components/layouts/MainLayout";
+import MainLayout from "@/components/layouts/main-layout";
 import {
   Pagination,
   PaginationContent,
