@@ -9,7 +9,15 @@ const nextConfig: NextConfig = {
         permanent: true,
       }
     ];
-  }
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'www.tabele-kalorii.pl',
+      },
+    ]
+  },
 };
 
 export default nextConfig;

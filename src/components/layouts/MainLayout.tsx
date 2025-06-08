@@ -1,15 +1,19 @@
-'use client';
+"use client";
 
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
-const navigation: any[] = [
+const navigation: { name: string; href: string }[] = [];
 
-];
-
-export default function MainLayout({ children }: { children: React.ReactNode }) {
+export default function MainLayout({
+  children,
+  footerContent,
+}: {
+  children: React.ReactNode;
+  footerContent?: React.ReactNode;
+}) {
   const pathname = usePathname();
 
   return (
@@ -29,7 +33,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                   "text-sm font-medium transition-colors hover:text-primary font-geist-sans",
                   pathname === item.href
                     ? "text-primary"
-                    : "text-muted-foreground"
+                    : "text-muted-foreground",
                 )}
               >
                 {item.name}
@@ -46,25 +50,8 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
           {children}
         </div>
       </main>
-      <footer className="flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
-      
-          <p className="text-sm text-muted-foreground font-geist-sans">
-            © {new Date().getFullYear()} Rate It. All rights reserved.
-          </p>
-          <div className="flex items-center space-x-6 ml-auto">
-            <Link
-              href="/privacy"
-              className="text-sm text-muted-foreground hover:text-primary font-geist-sans"
-            >
-              Privacy
-            </Link>
-            <Link
-              href="/terms"
-              className="text-sm text-muted-foreground hover:text-primary font-geist-sans"
-            >
-              Terms
-            </Link>
-        </div>
+      <footer className="flex-col items-center  justify-center bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        {footerContent}
       </footer>
     </div>
   );
